@@ -7,7 +7,7 @@ import fastify from 'fastify';
 import fastifyStatic from 'fastify-static';
 
 const server = fastify({
-  logger: true,
+  logger: false,
 });
 
 server.register(fastifyStatic, {
@@ -15,7 +15,7 @@ server.register(fastifyStatic, {
 });
 
 server.post('/save', async (request, reply) => {
-  console.log(request.body);
+  //console.log(request.body);
   writeFileSync(
     join(__dirname, 'html/data.json'),
     JSON.stringify(request.body, undefined, 2),

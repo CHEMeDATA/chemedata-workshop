@@ -1,5 +1,4 @@
-# fastify-post
-
+# chemedata-workshop
 
 
 ## Installation
@@ -12,6 +11,6 @@ Clone the project and
 
 `npm start`
 
-With your browser go to : http://localhost:8080/
+With your browser go to : http://localhost:3000/
 
 Check the console of the browser !

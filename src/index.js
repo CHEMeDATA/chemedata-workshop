@@ -6,10 +6,6 @@ import { join } from 'path';
 import fastify from 'fastify';
 import fastifyStatic from 'fastify-static';
 
-export function myModule() {
-  return 42;
-}
-
 const server = fastify({
   logger: true,
 });

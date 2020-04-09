@@ -4,7 +4,7 @@ let path = require('path');
 let fastify = require('fastify');
 let fastifyStatic = require('fastify-static');
 
-const server = fastify({
+let server = fastify({
   logger: true,
 });
 
@@ -23,7 +23,7 @@ server.post('/save', async (request, reply) => {
   reply.send({ hello: 'world' });
 });
 
-server.listen(3000, (err, address) => {
+server.listen(8080, (err, address) => {
   if (err) {
     server.log.error(err);
     process.exit(1);

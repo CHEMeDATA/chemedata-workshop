@@ -2,7 +2,7 @@
   "name": "chemedata-workshop",
   "version": "0.0.0",
   "description": "work on chemistry data",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "files": [
     "lib",
     "src"
@@ -11,8 +11,8 @@
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "prepublishOnly": "rollup -c",
-    "start": "nodemon -r esm src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "nodemon -r esm src/server.js",
+    "test": "npm run test-coverage && npm run eslint",
     "test-coverage": "jest --coverage",
     "test-only": "jest"
   },
@@ -20,11 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/chemedata/chemedata-workshop.git"
   },
-  "keywords": [
-    "nmr",
-    "chemedata",
-    "nmredata"
-  ],
+  "keywords": [],
   "author": "Damien Jeannerat",
   "license": "MIT",
   "bugs": {
@@ -51,7 +47,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "esm": "^3.2.25",
     "jest": "^25.2.7",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.3",
     "prettier": "^2.0.4",
     "rollup": "^2.3.4"
   },

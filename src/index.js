@@ -7,12 +7,12 @@ import fastify from 'fastify';
 import fastifyStatic from 'fastify-static';
 
 const server = fastify({
-  logger: false,
+  logger: true,
 });
 
 server.register(fastifyStatic, {
   root: join(__dirname, 'html'),
-  prefix: '/html/', // default '/'
+  // prefix: '/html/', // default '/'
 });
 
 server.post('/save', async (request, reply) => {
@@ -26,6 +26,9 @@ server.post('/save', async (request, reply) => {
 });
 
 server.listen(3000, (err, address) => {
-  if (err) throw err;
+  if (err) {
+    fastify.log.error(err);
+    process.exit(1);
+  }
   server.log.info(`server listening on ${address}`);
 });

@@ -12,6 +12,7 @@ const server = fastify({
 
 server.register(fastifyStatic, {
   root: join(__dirname, 'html'),
+  prefix: '/html/', // default '/'
 });
 
 server.post('/save', async (request, reply) => {

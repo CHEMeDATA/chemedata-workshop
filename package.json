@@ -11,7 +11,7 @@
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "prepublishOnly": "rollup -c",
-    "start": "node -r esm src/index.js",
+    "start": "nodemon -r esm src/index.js",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test-coverage": "jest --coverage",
     "test-only": "jest"

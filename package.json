@@ -2,11 +2,7 @@
   "name": "chemedata-workshop",
   "version": "0.0.0",
   "description": "work on chemistry data",
-  "main": "src/index.js",
-  "files": [
-    "lib",
-    "src"
-  ],
+  "main": "src/server.js",
   "scripts": {
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
@@ -49,9 +45,7 @@
     "jest": "^25.2.7",
     "nodemon": "^2.0.3",
     "prettier": "^2.0.4",
-    "rollup": "^2.3.4"
-  },
-  "dependencies": {
+    "rollup": "^2.3.4",
     "fastify": "^2.13.0",
     "fastify-static": "^2.6.0"
   }

@@ -7,10 +7,10 @@
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "prepublishOnly": "rollup -c",
-    "start": "nodemon -r esm src/server.js",
     "test": "npm run test-coverage && npm run eslint",
     "test-coverage": "jest --coverage",
-    "test-only": "jest"
+    "test-only": "jest",
+    "start": "nodemon -r esm src/server.js"
   },
   "repository": {
     "type": "git",

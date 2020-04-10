@@ -1,10 +1,9 @@
 // example copied from https://www.npmjs.com/package/fastify
-
-import fastify from 'fastify';
-import fastifyStatic from 'fastify-static';
-import fs from 'fs';
-
+let fs = require('fs');
 let path = require('path');
+
+let fastify = require('fastify');
+let fastifyStatic = require('fastify-static');
 
 const server = fastify({
   logger: true,

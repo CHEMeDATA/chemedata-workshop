@@ -25,5 +25,5 @@ server.post('/save', async (request, reply) => {
 
 server.listen(8080, (err, address) => {
   if (err) throw err;
-  server.log.info(`server listening on ${address}`);
+  server.log.info(`server listening on... ${address}`);
 });

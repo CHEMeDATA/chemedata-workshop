@@ -2,7 +2,7 @@
  * Returns a number for test
  * @return {number}
  */
-export function myModule() {
+function myModule() {
   let http = require('http');
   //let server = http.createServer(function (_request, response) {
   http.createServer(function (_request, response) {

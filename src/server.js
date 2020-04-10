@@ -1,22 +1,23 @@
-let fs = require('fs');
-let path = require('path');
+// example copied from https://www.npmjs.com/package/fastify
 
-let fastify = require('fastify');
-let fastifyStatic = require('fastify-static');
+import { writeFileSync } from 'fs';
+import { join } from 'path';
 
-let server = fastify({
+import fastify from 'fastify';
+import fastifyStatic from 'fastify-static';
+
+const server = fastify({
   logger: true,
 });
 
 server.register(fastifyStatic, {
-  root: path.join(__dirname, 'html'),
-  // prefix: '/html/', // default '/'
+  root: join(__dirname, 'html'),
 });
 
 server.post('/save', async (request, reply) => {
-  //console.log(request.body);
-  fs.writeFileSync(
-    path.join(__dirname, 'html/data.json'),
+  console.log(request.body);
+  writeFileSync(
+    join(__dirname, 'html/data.json'),
     JSON.stringify(request.body, undefined, 2),
     'utf8',
   );
@@ -24,9 +25,6 @@ server.post('/save', async (request, reply) => {
 });
 
 server.listen(8080, (err, address) => {
-  if (err) {
-    server.log.error(err);
-    process.exit(1);
-  }
+  if (err) throw err;
   server.log.info(`server listening on ${address}`);
 });

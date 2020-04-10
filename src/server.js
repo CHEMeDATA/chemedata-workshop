@@ -1,7 +1,7 @@
 // example copied from https://www.npmjs.com/package/fastify
 
-import { writeFileSync } from 'fs';
-import { join } from 'path';
+import { fs } from 'fs';
+import { path } from 'path';
 
 import fastify from 'fastify';
 import fastifyStatic from 'fastify-static';
@@ -11,12 +11,12 @@ const server = fastify({
 });
 
 server.register(fastifyStatic, {
-  root: join(__dirname, 'html'),
+  root: path.join(__dirname, 'html'),
 });
 
 server.post('/save', async (request, reply) => {
-  writeFileSync(
-    join(__dirname, 'html/data.json'),
+  fs.writeFileSync(
+    path.join(__dirname, 'html/data.json'),
     JSON.stringify(request.body, undefined, 2),
     'utf8',
   );

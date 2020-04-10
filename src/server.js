@@ -15,7 +15,6 @@ server.register(fastifyStatic, {
 });
 
 server.post('/save', async (request, reply) => {
-  console.log(request.body);
   writeFileSync(
     join(__dirname, 'html/data.json'),
     JSON.stringify(request.body, undefined, 2),

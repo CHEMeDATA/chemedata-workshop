@@ -1,6 +1,6 @@
 // example copied from https://www.npmjs.com/package/fastify
 
-import { fs } from 'fs';
+import fs from 'fs';
 import { path } from 'path';
 
 import fastify from 'fastify';

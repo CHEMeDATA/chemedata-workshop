@@ -14,7 +14,7 @@ server.register(fastifyStatic, {
   root: join(__dirname, 'html'),
 });
 
-server.post('/save', (request, reply) => {
+server.post('/save', async (request, reply) => {
   writeFileSync(
     join(__dirname, 'html/data.json'),
     JSON.stringify(request.body, undefined, 2),

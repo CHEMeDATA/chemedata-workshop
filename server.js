@@ -5,37 +5,21 @@ let path = require('path');
 let http = require('http');
 let url = require('url');
 
-let server = http.createServer(function (request, response) {
-  let pathSource = url.parse(request.url).pathname;
-  let path2 = path.join(__dirname, pathSource);
-  switch (pathSource) {
-    case '/':
-      response.writeHead(200, {
-        'Content-Type': 'text/plain',
-      });
-      response.write('This is Test Message Morning 3 !!.');
-      response.end();
-      break;
-    case '/html/page1.html':
-      fs.readFile(path2, function (error, data) {
-        if (error) {
-          response.writeHead(404);
-          response.write(error);
-          response.end();
-        } else {
-          response.writeHead(200, {
-            'Content-Type': 'text/html',
-          });
-          response.write(data);
-          response.end();
-        }
-      });
-      break;
-    default:
-      response.writeHead(404);
-      response.write("Doesn't exist 404 !");
-      response.end();
-      break;
-  }
+let fastify = require('fastify');
+
+let server = fastify({
+  logger: true,
 });
-server.listen(8080);
+
+server.register(require('fastify-static'), {
+  root: path.join(__dirname, 'html'),
+});
+
+server.get('/html', function (req, reply) {
+  reply.sendFile('page1.html'); // serving path.join(__dirname, 'public', 'myHtml.html') directly
+});
+
+server.listen(8080, (err, address) => {
+  if (err) throw err;
+  server.log.info(`server listening on... ${address}`);
+});

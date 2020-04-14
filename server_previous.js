@@ -13,8 +13,13 @@ server.register(fastifyStatic, {
   root: path.join(__dirname, 'html'),
 });
 
-server.get('/html', function (req, reply) {
-  reply.sendFile('page1.html'); // serving path.join(__dirname, 'public', 'myHtml.html') directly
+server.post('/save', async (request, reply) => {
+  fs.writeFileSync(
+    path.join(__dirname, 'html/data.json'),
+    JSON.stringify(request.body, undefined, 2),
+    'utf8',
+  );
+  reply.send({ hello: 'world' });
 });
 
 server.listen(8080, (err, address) => {

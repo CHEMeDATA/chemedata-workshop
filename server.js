@@ -8,7 +8,7 @@ let url = require('url');
 let fastify = require('fastify');
 
 let server = fastify({
-  logger: true,
+  logger: false,
 });
 
 server.register(require('fastify-static'), {
@@ -21,5 +21,4 @@ server.get('/html', function (req, reply) {
 
 server.listen(8080, (err, address) => {
   if (err) throw err;
-  server.log.info(`server listening on... ${address}`);
 });

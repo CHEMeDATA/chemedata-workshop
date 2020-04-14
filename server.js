@@ -1,11 +1,10 @@
 // example copied from https://www.npmjs.com/package/fastify
 let fs = require('fs');
 let path = require('path');
+let fastify = require('fastify');
 
 let http = require('http');
 let url = require('url');
-
-let fastify = require('fastify');
 
 let server = fastify({
   logger: false,

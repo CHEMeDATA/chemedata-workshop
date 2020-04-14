@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "fastify": "^2.13.0",
-    "fastify-static": "^2.6.0"
+    "fastify-static": "^2.6.0",
+    "nvm": "0.0.4"
   }
 }

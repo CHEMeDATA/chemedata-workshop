@@ -6,18 +6,19 @@ let fastify = require('fastify');
 let http = require('http');
 let url = require('url');
 
-let server = fastify({
+let serverfastify = fastify({
   logger: false,
 });
 
-server.register(require('fastify-static'), {
+serverfastify.register(require('fastify-static'), {
   root: path.join(__dirname, 'html'),
 });
 
-server.get('/html', function (req, reply) {
+serverfastify.get('/html', function (req, reply) {
   reply.sendFile('page1.html'); // serving path.join(__dirname, 'public', 'myHtml.html') directly
 });
 
-server.listen(8080, (err, address) => {
+serverfastify.listen(8080, (err, address) => {
   if (err) throw err;
+  serverfastify.log.info(`server listening on... ${address}`);
 });

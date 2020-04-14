@@ -10,7 +10,7 @@
     "test": "npm run test-coverage && npm run eslint",
     "test-coverage": "jest --coverage",
     "test-only": "jest",
-    "start": "nodemon -r esm server.js"
+    "start": "fastify start server.js"
   },
   "repository": {
     "type": "git",
@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "fastify": "^2.13.0",
+    "fastify-cli": "^1.5.0",
     "fastify-static": "^2.6.0",
     "nvm": "0.0.4"
   }

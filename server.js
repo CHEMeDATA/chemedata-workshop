@@ -1,15 +1,8 @@
-const fastify = require('fastify')()
+// server.js
+'use strict'
 
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
-})
-
-const start =  () => {
-  try {
-     fastify.listen(8080)
-  } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }
+module.exports = async function (fastify, opts) {
+  fastify.get('/', async (request, reply) => {
+    return { hello: 'world' }
+  })
 }
-start()

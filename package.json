@@ -2,7 +2,7 @@
   "name": "chemedata-workshop",
   "version": "0.0.0",
   "description": "work on chemistry data",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
@@ -10,7 +10,7 @@
     "test": "npm run test-coverage && npm run eslint",
     "test-coverage": "jest --coverage",
     "test-only": "jest",
-    "start": "nodemon -r esm src/server.js"
+    "start": "nodemon -r esm server.js"
   },
   "repository": {
     "type": "git",
@@ -54,4 +54,3 @@
     "fastify-static": "^2.6.0"
   }
 }
-

@@ -1,39 +1,28 @@
-const fastify = require('fastify')({ logger: true })
+// example copied from https://www.npmjs.com/package/fastify
+let fs = require('fs');
+let path = require('path');
 
-fastify.route({
-  method: 'GET',
-  url: '/',
-  schema: {
-    // request needs to have a querystring with a `name` parameter
-    querystring: {
-      name: { type: 'string' }
-    },
-    // the response needs to be an object with an `hello` property of type 'string'
-    response: {
-      200: {
-        type: 'object',
-        properties: {
-          hello: { type: 'string' }
-        }
-      }
-    }
-  },
-  // this function is executed for every request before the handler is executed
-  beforeHandler: async (request, reply) => {
-    // E.g. check authentication
-  },
-  handler: async (request, reply) => {
-    return { hello: 'world3' }
-  }
-})
+let fastify = require('fastify');
+let fastifyStatic = require('fastify-static');
 
-const start = async () => {
-  try {
-    await fastify.listen(3000)
-    fastify.log.info(`server listening on ${fastify.server.address().port}`)
-  } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }
-}
-start()
+let server = fastify({
+  logger: true,
+});
+
+server.register(fastifyStatic, {
+  root: path.join(__dirname, 'html'),
+});
+
+server.post('/save', async (request, reply) => {
+  fs.writeFileSync(
+    path.join(__dirname, 'html/data.json'),
+    JSON.stringify(request.body, undefined, 2),
+    'utf8',
+  );
+  reply.send({ hello: 'world' });
+});
+
+server.listen(8080, (err, address) => {
+  if (err) throw err;
+  server.log.info(`server listening on... ${address}`);
+});

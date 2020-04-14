@@ -10,12 +10,12 @@ let server = fastify({
 });
 
 server.register(fastifyStatic, {
-  root: path.join(__dirname, 'src/html'),
+  root: path.join(__dirname, 'html'),
 });
 
 server.post('/save', async (request, reply) => {
   fs.writeFileSync(
-    path.join(__dirname, 'src/html/data.json'),
+    path.join(__dirname, 'html/data.json'),
     JSON.stringify(request.body, undefined, 2),
     'utf8',
   );

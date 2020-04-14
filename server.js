@@ -4,9 +4,9 @@ fastify.get('/', async (request, reply) => {
   return { hello: 'world' }
 })
 
-const start = async () => {
+const start =  () => {
   try {
-    await fastify.listen(8080)
+     fastify.listen(8080)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)

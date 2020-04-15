@@ -1,6 +1,6 @@
 # chemedata-workshop
 
-(hosted here [https://jelastic.chemedata.org/](https://jelastic.chemedata.org/)
+(hosted here [http://jelastic.chemedata.org/](http://jelastic.chemedata.org/)
 
 ## Installation
 

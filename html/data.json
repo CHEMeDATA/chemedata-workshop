@@ -1,14 +1,3 @@
---2020-04-15 10:47:24--  ftp://jelastic-ftp:*password*@185.172.102.147/ROOT/html/data.json
-           => ‘data.json.3’
-Connecting to 185.172.102.147:21... connected.
-Logging in as jelastic-ftp ... Logged in!
-==> SYST ... done.    ==> PWD ... done.
-==> TYPE I ... done.  ==> CWD (1) /ROOT/html ... done.
-==> SIZE data.json ... 35
-==> PASV ... done.    ==> RETR data.json ... done.
-Length: 35 (unauthoritative)
-
-     0K                                                       100% 38.0K=0.001s
-
-2020-04-15 10:47:24 (38.0 KB/s) - ‘data.json.3’ saved [35]
-
+{
+     "id": "123445556782333331acdOK"
+}

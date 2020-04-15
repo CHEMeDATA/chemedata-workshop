@@ -22,7 +22,7 @@ server.post('/save', async (request, reply) => {
   reply.send({ hello: 'world' });
 });
 
-server.listen({port: 8080, host: '0.0.0.0'}, (err, address) => {
+server.listen({ port: 8080, host: '0.0.0.0' }, (err, address) => {
   if (err) throw err;
   server.log.info(`server listening on... ${address}`);
 });

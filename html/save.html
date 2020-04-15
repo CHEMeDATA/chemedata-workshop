@@ -1,0 +1,32 @@
+<html>
+  <head></head>
+
+  <body>
+    <textarea id="json" cols="80" rows="10"> </textarea>
+    <button onclick="save()">Save data</button>
+    <script>
+      onLoad();
+      async function onLoad() {
+        let response = await fetch('data.json');
+        let data = await response.json();
+        document.getElementById('json').innerHTML = JSON.stringify(
+          data,
+          undefined,
+          2,
+        );
+      }
+
+      async function save() {
+        let data = JSON.parse(document.getElementById('json').value);
+        const response = await fetch('/save', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        const result = await response.json();
+      }
+    </script>
+  </body>
+</html>

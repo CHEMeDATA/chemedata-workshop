@@ -1,32 +1,17 @@
 <html>
-  <head></head>
+  <head>
+    <title>CHEMeDATA workshop</title>
+  </head>
 
   <body>
-    <textarea id="json" cols="80" rows="10"> </textarea>
-    <button onclick="save()">Save data</button>
-    <script>
-      onLoad();
-      async function onLoad() {
-        let response = await fetch('data.json');
-        let data = await response.json();
-        document.getElementById('json').innerHTML = JSON.stringify(
-          data,
-          undefined,
-          2,
-        );
-      }
+    <h1>Home page</h1>
+    Under construction
 
-      async function save() {
-        let data = JSON.parse(document.getElementById('json').value);
-        const response = await fetch('/save', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-        const result = await response.json();
-      }
-    </script>
+    <p>
+      <a href="page1.html">page1</a>
+    </p>
+    <p>
+      <a href="save.html">save page</a>
+    </p>
   </body>
 </html>

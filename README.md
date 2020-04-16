@@ -15,3 +15,32 @@ Clone the project and
 With your browser go to : http://localhost:8080/
 
 Check the console of the browser !
+
+## Open Babel 
+Install the [libopenababel-lib](https://www.npmjs.com/package/openbabel) package according to your environment:
+
+Installation OS X
+`brew install open-babel`
+`npm install openbabel`
+
+
+Installation Linus
+
+`sudo apt-get install libopenbabel-dev`
+
+OR
+
+`sudo yum install libopenbabel-dev`
+`npm install openbabel`
+
+
+[Installation](https://docs.jelastic.com/environment-import) of the [libopenababel-lib](https://www.npmjs.com/package/openbabel) on a jelastic server required the [Yum package installer Add-On](https://github.com/jelastic-jps/packages-installer) to avoid the need of root priviledge.
+
+## k-fastify-gateway API 
+
+`npm i fastify k-fastify-gateway` probably should remove  ... see below
+npm i fastify-cors
+npm i cors
+npm i -S fastify-reply-from
+npm i basic-auth-connect
+npm i  -S k-fastify-gateway

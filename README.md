@@ -56,3 +56,5 @@ curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http:/
 ```
 
 **Note:** .sdf files are compatible with mol files.
+
+**Coming up...** conversion of other chemistry structure format. The files in .cdx format are binary and cannot be converted at this time.

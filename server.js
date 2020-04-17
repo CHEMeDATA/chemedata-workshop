@@ -12,12 +12,12 @@ let fastifyStatic = require('fastify-static');
 let server = fastify({
   logger: true,
 });
+/*
 
 /// api part from https://github.com/jkyberneees/fastify-gateway
 // required plugin for HTTP requests proxy
 server.register(fastifyreplyfrom);
 
-/*
 // gateway plugin
 server.register(kfastifygateway, {
   middlewares: [corshere()],
@@ -56,20 +56,21 @@ server.register(kfastifygateway, {
   ],
 });
 //end api part
-/*
+*/
 
 server.register(fastifyStatic, {
   root: path.join(__dirname, 'html'),
 });
+
 /*
 server.get('html/data', async function (req, reply) {
   reply.sendFile('data_copy.json'); // serving path.join(__dirname, 'public', 'myHtml.html') directly
 });
 */
 server.post('/saveUpload', async (request, reply) => {
-  console.log(`****************server get saveUpload on... ${request}`);
+  //console.log(`****************server get saveUpload on... ${request}`);
   fs.writeFileSync(
-    path.join(__dirname, 'html/data/dataUpload.json'),
+    path.join(__dirname, 'html/data/dataUpload.txt'),
     request.body,
     'utf8',
   );
@@ -77,7 +78,7 @@ server.post('/saveUpload', async (request, reply) => {
 });
 
 server.post('/cdxml2mol', async (request, reply) => {
-  console.log(`****************server get cdxml2mol on... ${request}`);
+  //console.log(`****************server get cdxml2mol on... ${request}`);
   await fs.writeFileSync(
     path.join(__dirname, 'html/data/cdxml2mol_input.cdxml'),
     request.body,
@@ -94,7 +95,10 @@ server.post('/cdxml2mol', async (request, reply) => {
   reply.send(fileout);
   //
   */
- const stream = fs.createReadStream('html/data/cdxml2mol_input.cdxml.sdf', 'utf8')
+  const stream = fs.createReadStream(
+    'html/data/cdxml2mol_input.cdxml.sdf',
+    'utf8',
+  );
   reply.send(stream);
 });
 
@@ -124,7 +128,7 @@ server.listen({ port: 8080, host: '0.0.0.0' }, (err, address) => {
 function openBabelToSdf(arg) {
   const exec = require('child_process').exec;
   return new Promise((resolve, reject) => {
-    let cmdf = 'obabel ' + arg + ' -o sdf -O ' + arg + '.sdf';
+    let cmdf = `obabel ${arg} -o sdf -O ${arg}.sdf`;
     exec(cmdf, (error, stdout, stderr) => {
       if (error) {
         server.log.err(error);

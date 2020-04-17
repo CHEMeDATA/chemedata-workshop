@@ -15,7 +15,7 @@
     conversion of .cdxml files into .mol
     files:
     <p>
-      curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain"
+      curl -T structure.cdxml -X POST -H "Content-Type: text/plain"
       http://jelastic.chemedata.org/cdxml2mol -o convertedStructure.sdf
     </p>
     <p>

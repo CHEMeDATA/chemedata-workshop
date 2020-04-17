@@ -2,71 +2,31 @@
 let fs = require('fs');
 let path = require('path');
 
-//let bac = require('basic-auth-connect');//?
-//let corshere = require('cors');
 let fastify = require('fastify');
-//let fastifyreplyfrom = require('fastify-reply-from');
 let fastifyStatic = require('fastify-static');
-//let kfastifygateway = require('k-fastify-gateway'); // not nicely installed...
 
 let server = fastify({
   logger: true,
 });
-/*
-
-/// api part from https://github.com/jkyberneees/fastify-gateway
-// required plugin for HTTP requests proxy
-server.register(fastifyreplyfrom);
-
-// gateway plugin
-server.register(kfastifygateway, {
-  middlewares: [corshere()],
-
-  routes: [
-    {
-      prefix: '/public',
-      prefixRewrite: '',
-      target: 'http://localhost:3000',
-      middlewares: [],
-      hooks: {
-        async onRequest(req, reply) {
-          //   // we can optionally reply from here if required
-          //   reply.send('Hello World!')
-          //
-          //   return true // truthy value returned will abort the request forwarding
-        },
-        onResponse(req, reply, res) {
-          // do some post-processing here
-          // ...
-          // forward response to origin client once finished
-          reply.send(res);
-        },
-        // other options allowed https://github.com/fastify/fastify-reply-from#replyfromsource-opts
-      },
-    },
-    {
-      prefix: '/admin',
-      target: 'http://localhost:3001',
-      middlewares: [bac('admin', '-pass')],
-    },
-    {
-      prefix: '/user',
-      target: 'http://localhost:3001',
-    },
-  ],
-});
-//end api part
-*/
 
 server.register(fastifyStatic, {
   root: path.join(__dirname, 'html'),
 });
 
-/*
-server.get('html/data', async function (req, reply) {
-  reply.sendFile('data_copy.json'); // serving path.join(__dirname, 'public', 'myHtml.html') directly
+server.post('/cdxml2mol', async (request, reply) => {
+  await fs.writeFileSync(
+    path.join(__dirname, 'html/data/cdxml2mol_input.cdxml'),
+    request.body,
+    'utf8',
+  );
+  await openBabelToSdf('html/data/cdxml2mol_input.cdxml');
+  const stream = fs.createReadStream(
+    'html/data/cdxml2mol_input.cdxml.sdf',
+    'utf8',
+  );
+  reply.send(stream);
 });
-*/
+
 server.post('/saveUpload', async (request, reply) => {
   //console.log(`****************server get saveUpload on... ${request}`);
   fs.writeFileSync(
@@ -75,31 +35,6 @@ server.post('/saveUpload', async (request, reply) => {
     'utf8',
   );
   reply.send({ hello: 'world saveUpload' });
-});
-
-server.post('/cdxml2mol', async (request, reply) => {
-  //console.log(`****************server get cdxml2mol on... ${request}`);
-  await fs.writeFileSync(
-    path.join(__dirname, 'html/data/cdxml2mol_input.cdxml'),
-    request.body,
-    'utf8',
-  );
-  await openBabelToSdf('html/data/cdxml2mol_input.cdxml');
-  /* //this is working but not really controled end-of-line with /n...
-  let fileout = await fs.readFileSync(
-    path.join(__dirname, 'html/data/cdxml2mol_input.cdxml.sdf'),
-    request.body,
-    'utf8',
-  );
-  const stream = fs.createReadStream('some-file', 'utf8')
-  reply.send(fileout);
-  //
-  */
-  const stream = fs.createReadStream(
-    'html/data/cdxml2mol_input.cdxml.sdf',
-    'utf8',
-  );
-  reply.send(stream);
 });
 
 server.post('/save', async (request, reply) => {

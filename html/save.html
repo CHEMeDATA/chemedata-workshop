@@ -2,12 +2,52 @@
   <head></head>
 
   <body>
-    <textarea id="json" cols="80" rows="10"> </textarea>
-    <button onclick="save()">Save data</button>
+    <p>
+      <textarea id="json" cols="80" rows="10"> </textarea>
+    </p>
+    <p>
+      <button onclick="save()">Save data</button>
+    </p>
+    <p>
+      <button onclick="saveCopy()">Save a copy</button>
+    </p>
+    <p>
+      <label for="myfile">Select a file:</label>
+      <input type="file" id="myfile" name="myfile" />
+      <input
+        id="submit"
+        name="submit"
+        type="submit"
+        value="Submit23"
+        onclick="submitMe(this);"
+      />
+    </p>
     <script>
+      async function submitMe() {
+        // document.getElementById('myfile').submit();
+        let content = document.getElementById('myfile').files[0];
+        /*
+        formData = new FormData();
+        let user = { name: 'john', age: 34 }; //optional.... demo
+        //formData.append("content", content);
+        formData.append('user', JSON.stringify(user));
+        formData.append('files[]', content);
+        document.getElementById('json').innerHTML =
+          content.name + ' ' + content.size;
+*/
+        const response = await fetch('/saveUpload', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+          body: content,
+        });
+        const result = await response.json();
+      }
+
       onLoad();
       async function onLoad() {
-        let response = await fetch('data.json');
+        let response = await fetch('../data/data.json');
         let data = await response.json();
         document.getElementById('json').innerHTML = JSON.stringify(
           data,
@@ -19,6 +59,18 @@
       async function save() {
         let data = JSON.parse(document.getElementById('json').value);
         const response = await fetch('/save', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        const result = await response.json();
+      }
+
+      async function saveCopy() {
+        let data = JSON.parse(document.getElementById('json').value);
+        const response = await fetch('/saveCopy', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

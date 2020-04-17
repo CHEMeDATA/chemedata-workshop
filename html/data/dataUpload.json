@@ -47,8 +47,3 @@ npm i cors
 npm i -S fastify-reply-from
 npm i basic-auth-connect
 npm i  -S k-fastify-gateway
-
-
-## test API 
-
-`curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://localhost:8080/cdxml2mol -o convertedStructure.sdf`

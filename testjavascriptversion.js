@@ -19,7 +19,7 @@ const javaInfo = execShellCommand('java -version');
 console.log(javaInfo);
 
 javaInfo.then((exec) => {
-    // successMessage is whatever we passed in the resolve(...) function above.
-    // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
-    console.log('Version: ... ' + exec);
-  });
+  // successMessage is whatever we passed in the resolve(...) function above.
+  // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+  console.log('Version: ... ' + exec);
+});

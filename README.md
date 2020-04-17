@@ -55,6 +55,8 @@ Run conversion on the CHEMeDATA server :
 curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://jelastic.chemedata.org/cdxml2mo -o convertedStructure.sdf
 ```
 
-**Note:** .sdf files are compatible with mol files.
+**Note:** Stucture Data Format files (.sdf) are compatible with mol files.
 
-**Coming up...** conversion of other chemistry structure format. The files in .cdx format are binary and cannot be converted at this time.
+**Coming up...** Conversion of other chemistry structure format! The files in .cdx format are binary and cannot be converted at this time.
+
+

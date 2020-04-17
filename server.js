@@ -14,7 +14,7 @@ server.register(fastifyStatic, {
 });
 
 server.post('/cdxml2mol', async (request, reply) => {
-  await fs.writeFileSync(
+  fs.writeFileSync(
     path.join(__dirname, 'html/data/cdxml2mol_input.cdxml'),
     request.body,
     'utf8',

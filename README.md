@@ -1,10 +1,13 @@
 # chemedata-workshop
 
-(hosted here [http://jelastic.chemedata.org/](http://jelastic.chemedata.org/)
+*This repository is temporary and features will be re-organized in the future*
+
+This repository is deployed on the [CHEMeDATA](http://jelastic.chemedata.org/) website.
+Please post a [GitHub Issue](https://github.com/CHEMeDATA/chemedata-workshop/issues/new) if you have comments or want to report problems.
 
 ## Installation
 
-Clone the project and 
+Clone the project and install with
 
 `npm i`
 
@@ -12,43 +15,44 @@ Clone the project and
 
 `npm start`
 
-With your browser go to : http://localhost:8080/
-
-Check the console of the browser !
+With your browser go to : http://localhost:8080/.
 
 ## Open Babel 
-Install the [libopenababel-lib](https://www.npmjs.com/package/openbabel) package according to your environment:
 
-Installation OS X
-`brew install open-babel`
-`npm install openbabel`
+Install [open babel](https://www.npmjs.com/package/openbabel) according to your environment:
 
+OS X installation
+```
+brew install open-babel
+```
 
-Installation Linus
+Linux installation 
 
-`sudo apt-get install libopenbabel-dev`
+```
+sudo apt-get install libopenbabel-dev
+```
 
 OR
 
-`sudo yum install libopenbabel-dev`
-`npm install openbabel`
+```
+sudo yum install libopenbabel-dev
+```
 
+Installation with no root access
 
 [Installation](https://docs.jelastic.com/environment-import) of the [libopenababel-lib](https://www.npmjs.com/package/openbabel) on a jelastic server required the [Yum package installer Add-On](https://github.com/jelastic-jps/packages-installer) to avoid the need of root priviledge.
 
-openbabel.x86_64                   2.3.2-2.el7                      @epel       
-openbabel-libs.x86_64              2.3.2-2.el7                      @epel  
+## Usage 
 
-## k-fastify-gateway API 
+### Convert .cdxml to .sdf 
+Run conversion from local server
+```
+curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://localhost:8080/cdxml2mol -o strucutre.sdf
+```
 
-`npm i fastify k-fastify-gateway` probably should remove  ... see below
-npm i fastify-cors
-npm i cors
-npm i -S fastify-reply-from
-npm i basic-auth-connect
-npm i  -S k-fastify-gateway
+Run conversion on the CHEMeDATA server :
+```
+curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://jelastic.chemedata.org/cdxml2mo -o convertedStructure.sdf
+```
 
-
-## test API 
-
-`curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://localhost:8080/cdxml2mol -o convertedStructure.sdf`
+**Note:** .sdf files are compatible with mol files.

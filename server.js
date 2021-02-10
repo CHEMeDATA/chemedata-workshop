@@ -12,7 +12,7 @@ let server = fastify({
 server.register(fastifyStatic, {
   root: path.join(__dirname, 'html'),
 });
-
+// possible improvement https://stackoverflow.com/questions/11944932/how-to-download-a-file-with-node-js-without-using-third-party-libraries
 server.post('/cdxml2mol', async (request, reply) => {
   fs.writeFileSync(
     path.join(__dirname, 'html/data/cdxml2mol_input.cdxml'),

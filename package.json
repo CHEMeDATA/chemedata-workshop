@@ -34,29 +34,28 @@
     "trailingComma": "all"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
-    "@types/jest": "^25.2.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
+    "@types/jest": "^25.2.3",
     "eslint": "^6.8.0",
     "eslint-config-cheminfo": "^3.0.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jest": "^23.8.2",
-    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "esm": "^3.2.25",
-    "fastify": "^2.15.1",
-    "fastify-static": "^2.6.0",
-    "jest": "^25.2.7",
-    "nodemon": "^2.0.3",
-    "prettier": "^2.0.4",
-    "rollup": "^2.3.4"
+    "fastify": "^2.15.3",
+    "fastify-static": "^2.7.0",
+    "jest": "^25.5.4",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "rollup": "^2.45.2"
   },
   "dependencies": {
     "basic-auth-connect": "^1.0.0",
     "cors": "^2.8.5",
-    "fastify-cli": "^1.5.0",
+    "fastify-cli": "^2.9.1",
     "fastify-cors": "^3.0.3",
-    "fastify-reply-from": "^4.0.2",
-    "fastify-static": "^2.6.0",
-    "k-fastify-gateway": "^2.8.2",
+    "fastify-reply-from": "4.0.2",
+    "k-fastify-gateway": "^2.8.3",
     "nvm": "0.0.4"
   }
 }

@@ -52,7 +52,7 @@ curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http:/
 
 Run conversion on the CHEMeDATA server :
 ```
-curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://jelastic.chemedata.org/cdxml2mo -o convertedStructure.sdf
+curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://jelastic.chemedata.org/cdxml2mol -o convertedStructure.sdf
 ```
 
 **Note:** Stucture Data Format files (.sdf) are compatible with mol files.

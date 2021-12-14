@@ -43,7 +43,7 @@
     "eslint-plugin-prettier": "^3.4.1",
     "esm": "^3.2.25",
     "fastify": "^2.15.3",
-    "fastify-static": "^4.4.1",
+    "fastify-static": "^4.5.0",
     "jest": "^25.5.4",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",

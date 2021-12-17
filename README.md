@@ -57,7 +57,6 @@ Run conversion on the CHEMeDATA server :
 curl --upload-file ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://jelastic.chemedata.org/cdxml2mol -o convertedStructure.sdf
 #curl --upload-file "{file1,file2}" http://www.example.com//
 Workin on...
-
 curl --data-binary  --upload-file ./molecules/benzoic.cdx -X POST -H "Content-Type: application/zip" http://jelastic.chemedata.org/cdx2mol -o convertedStructure222.sdf
 
 ```

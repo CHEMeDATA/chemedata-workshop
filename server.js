@@ -33,10 +33,7 @@ server.post('/cdx2mol', async (request, reply) => {
     request.body,
   );
   await openBabelToSdf('html/data/cdx2mol_input.cdx');
-  const stream = fs.createReadStream(
-    'html/data/cdx2mol_input.cdxml.sdf',
-    'utf8',
-  );
+  const stream = fs.createReadStream('html/data/cdx2mol_input.cdx.sdf', 'utf8');
   reply.send(stream);
 });
 

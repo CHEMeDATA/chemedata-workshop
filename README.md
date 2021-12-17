@@ -47,12 +47,19 @@ Installation with no root access
 ### Convert .cdxml to .sdf 
 Run conversion from local server
 ```
-curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://localhost:8080/cdxml2mol -o strucutre.sdf
+curl -T  ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://localhost:8080/cdxml2mol -o structure.sdf
+ 
 ```
 
 Run conversion on the CHEMeDATA server :
-```
-curl -T ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://jelastic.chemedata.org/cdxml2mol -o convertedStructure.sdf
+```csh
+
+curl --upload-file ./molecules/structure.cdxml -X POST -H "Content-Type: text/plain" http://jelastic.chemedata.org/cdxml2mol -o convertedStructure.sdf
+#curl --upload-file "{file1,file2}" http://www.example.com//
+Workin on...
+
+curl --data-binary  --upload-file ./molecules/benzoic.cdx -X POST -H "Content-Type: application/zip" http://jelastic.chemedata.org/cdx2mol -o convertedStructure222.sdf
+
 ```
 
 **Note:** Stucture Data Format files (.sdf) are compatible with mol files.

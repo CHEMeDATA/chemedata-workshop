@@ -52,7 +52,7 @@
   "dependencies": {
     "basic-auth-connect": "^1.0.0",
     "cors": "^2.8.5",
-    "fastify-cli": "^2.14.0",
+    "fastify-cli": "^5.7.1",
     "fastify-cors": "^3.0.3",
     "fastify-reply-from": "4.0.2",
     "k-fastify-gateway": "^2.8.4",

@@ -6,7 +6,7 @@ let path = require('path');
 //let corshere = require('cors');
 let fastify = require('fastify');
 //let fastifyreplyfrom = require('fastify-reply-from');
-let fastifyStatic = require('fastify-static');
+let fastifyStatic = require('@fastify/static');
 //let kfastifygateway = require('k-fastify-gateway'); // not nicely installed...
 
 let server = fastify({

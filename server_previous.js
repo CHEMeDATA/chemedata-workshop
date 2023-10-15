@@ -3,7 +3,7 @@ let fs = require('fs');
 let path = require('path');
 
 let fastify = require('fastify');
-let fastifyStatic = require('fastify-static');
+let fastifyStatic = require('@fastify/static');
 
 let server = fastify({
   logger: true,

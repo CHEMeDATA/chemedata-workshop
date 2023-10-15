@@ -43,3 +43,4 @@ lib
 
 dont_copy_on_github
 
+.DS_Store

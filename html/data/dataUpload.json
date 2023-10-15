@@ -44,6 +44,6 @@ openbabel-libs.x86_64              2.3.2-2.el7                      @epel
 `npm i fastify k-fastify-gateway` probably should remove  ... see below
 npm i fastify-cors
 npm i cors
-npm i -S fastify-reply-from
+npm i -S @fastify/reply-from@7.0.0
 npm i basic-auth-connect
 npm i  -S k-fastify-gateway

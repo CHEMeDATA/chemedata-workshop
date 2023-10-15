@@ -3,7 +3,7 @@ let fs = require('fs');
 let path = require('path');
 
 let fastify = require('fastify');
-let fastifyStatic = require('fastify-static');
+let fastifyStatic = require('@fastify/static');
 
 let server = fastify({
   logger: true,
@@ -76,8 +76,8 @@ function openBabelToSdf(arg) {
     let cmdf = `obabel ${arg} -o sdf -O ${arg}.sdf`;
     exec(cmdf, (error, stdout, stderr) => {
       if (error) {
-        server.log.err(error);
-      }
+        console.error(error); // Use console.error to log the error
+              }
       resolve(stdout ? stdout : stderr);
     });
   });

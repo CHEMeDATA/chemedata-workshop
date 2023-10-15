@@ -1,9 +1,8 @@
 // example copied from https://www.npmjs.com/package/fastify
 let fs = require('fs');
 let path = require('path');
-
-let fastify = require('fastify');
 let fastifyStatic = require('@fastify/static');
+let fastify = require('fastify');
 
 let server = fastify({
   logger: true,
